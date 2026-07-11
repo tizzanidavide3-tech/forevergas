@@ -1,1 +1,74 @@
-# forevergas
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOREVER GAS - Premium Selezioni</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fff;font-family:system-ui,sans-serif;min-height:100vh;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+.avatar{width:40px;height:40px;border-radius:50%;background:#FFC700;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#000}
+.telegram-btn{background:#0088cc;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-flex;align-items:center;gap:8px}
+.card{background:#111;border-radius:30px;padding:60px 20px;text-align:center;box-shadow:0 0 60px rgba(255,199,0,0.3);margin-bottom:60px}
+.logo{width:200px;height:200px;border-radius:50%;border:4px solid #FFC700;margin:0 auto 30px;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:cover}
+h1{font-size:48px;margin-bottom:10px}
+h1 .white{color:#fff;-webkit-text-stroke:2px #000}
+h1 .yellow{color:#FFC700;text-shadow:0 0 20px #FFC700}
+.subtitle{color:#888;font-size:14px;margin-bottom:40px}
+.products{margin:60px 0}
+.products h2{text-align:center;color:#FFC700;font-size:32px;margin-bottom:40px;text-shadow:0 0 20px #FFC700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.product{background:#1a1a1a;border:2px solid #FFC700;border-radius:20px;padding:30px;text-align:center}
+.product h3{font-size:24px;margin-bottom:15px}
+.price{color:#FFC700;font-size:28px;font-weight:bold;margin:15px 0}
+.buy-btn{background:#0088cc;color:#fff;padding:12px 30px;border-radius:10px;text-decoration:none;display:inline-block;font-weight:bold;margin-top:10px}
+.footer{text-align:center;color:#555;padding:40px 0;font-size:14px}
+@media(max-width:768px){h1{font-size:36px}.card{padding:40px 15px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="avatar">F</div>
+    <a href="https://t.me/FOREVERGAS" class="telegram-btn" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.9-1.056-.696-1.653-1.13-2.678-1.812-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23-.008-.037-.011-.17-.068-.24-.057-.07-.14-.066-.249-.046-.106.018-1.705 1.085-4.814 3.19-.456.313-.869.465-1.238.455-.407-.01-1.19-.23-1.772-.42-.715-.23-1.285-.35-1.235-.74.026-.204.323-.414.887-.66 3.478-1.51 5.797-2.508 6.957-2.993 3.31-1.386 4-1.626 4.447-1.636z"/></svg>
+      TELEGRAM
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="logo">
+      <img src="https://i.imgur.com/YOUR_IMAGE_ID.png" alt="FOREVER GAS">
+    </div>
+    <h1><span class="white">PREMIUM</span><br><span class="yellow">SELEZIONI</span></h1>
+    <p class="subtitle">Exclusive Access • Limited Edition • Premium Quality</p>
+  </div>
+
+  <section class="products">
+    <h2>I NOSTRI PRODOTTI</h2>
+    <div class="grid">
+      <div class="product">
+        <h3>Prodotto 1</h3>
+        <p class="price">€29.99</p>
+        <a href="https://t.me/FOREVERGAS" class="buy-btn" target="_blank">Ordina su Telegram</a>
+      </div>
+      <div class="product">
+        <h3>Prodotto 2</h3>
+        <p class="price">€49.99</p>
+        <a href="https://t.me/FOREVERGAS" class="buy-btn" target="_blank">Ordina su Telegram</a>
+      </div>
+      <div class="product">
+        <h3>Prodotto 3</h3>
+        <p class="price">€79.99</p>
+        <a href="https://t.me/FOREVERGAS" class="buy-btn" target="_blank">Ordina su Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2025 FOREVER GAS All rights reserved.</div>
+</div>
+</body>
+</html>

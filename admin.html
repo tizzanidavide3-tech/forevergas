@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Upload</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fff;font-family:system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.login,.upload-box{background:#111;border:2px solid #FFC700;border-radius:20px;padding:40px;max-width:500px;width:100%;text-align:center;box-shadow:0 0 40px rgba(255,199,0,0.2)}
+input{width:100%;padding:12px;margin:15px 0;background:#1a1a1a;border:1px solid #333;border-radius:10px;color:#fff;font-size:16px}
+button{background:#FFC700;color:#000;padding:12px 30px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;font-size:16px}
+button:hover{opacity:0.9}
+#dropzone{border:3px dashed #FFC700;border-radius:20px;padding:60px 20px;margin:20px 0;cursor:pointer;transition:0.3s}
+#dropzone.dragover{background:#1a1a1a;border-color:#fff}
+#preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:20px}
+#preview img{width:100%;height:100px;object-fit:cover;border-radius:10px}
+.hidden{display:none}
+.link-list{margin-top:20px;text-align:left}
+.link-list a{color:#FFC700;word-break:break-all;font-size:14px}
+</style>
+</head>
+<body>
 
+<div class="login" id="loginBox">
+  <h2 style="color:#FFC700;margin-bottom:20px">Area Privata</h2>
+  <input type="password" id="pwd" placeholder="Password">
+  <button onclick="checkPwd()">Entra</button>
+</div>
+
+<div class="upload-box hidden" id="uploadBox">
+  <h2 style="color:#FFC700;margin-bottom:10px">Carica Foto</h2>
+  <p style="color:#888;margin-bottom:20px">Trascina qui o clicca</p>
+  
+  <div id="dropzone">
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="#FFC700"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+    <p style="margin-top:10px">Rilascia le foto qui</p>
+    <input type="file" id="fileInput" multiple accept="image/*" hidden>
+  </div>
+  
+  <div id="preview"></div>
+  <div class="link-list" id="links"></div>
+</div>
+
+<script>
+const PASSWORD = "forever2026"; // CAMBIA QUESTA PASSWORD
+
+function checkPwd(){
+  if(document.getElementById('pwd').value === PASSWORD){
+    document.getElementById('loginBox').classList.add('hidden');
+    document.getElementById('uploadBox').classList.remove('hidden');
+  } else {
+    alert('Password errata');
+  }
+}
+
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+const links = document.getElementById('links');
+
+dropzone.onclick = () => fileInput.click();
+
+dropzone.ondragover = (e) => {
+  e.preventDefault();
+  dropzone.classList.add('dragover');
+};
+dropzone.ondragleave = () => dropzone.classList.remove('dragover');
+dropzone.ondrop = (e) => {
+  e.preventDefault();
+  dropzone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+};
+fileInput.onchange = (e) => handleFiles(e.target.files);
+
+function handleFiles(files){
+  [...files].forEach(file => {
+    if(!file.type.startsWith('image/')) return;
+    
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      // Mostra anteprima
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      preview.appendChild(img);
+      
+      // ATTENZIONE: questo salva solo nel browser. 
+      // Per salvare davvero sul server ti serve PHP, vedi versione 2 sotto
+      const link = document.createElement('div');
+      link.innerHTML = `<p style="color:#888;margin:10px 0 5px">Salvata localmente: ${file.name}</p>`;
+      links.appendChild(link);
+    }
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+</body>
+</html>
